@@ -11,17 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('product_variations', function (Blueprint $table) {
-            $table->id();
+        Schema::create('provinces', function (Blueprint $table) {
+            $table->unsignedBigInteger('id')->primary(); // dari raja ongkir
+            $table->string('name');
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('product_variations');
+        Schema::dropIfExists('provinces');
     }
 };
