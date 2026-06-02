@@ -13,7 +13,10 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+        // Mendaftarkan alias 'jwt' untuk middleware kita
+        $middleware->alias([
+            'jwt' => \App\Http\Middleware\JwtMiddleware::class
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(
